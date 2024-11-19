@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Del</title>
+    <link rel="stylesheet" href="cart.css">
+    <link rel="icon" href="images/del-icon.png" type="image/png">
+</head>
+<body>
+
+    <!-- Cart Section -->
+    <div class="cart">
+        <h1 style="text-align: center; margin-top: 20px; margin-bottom: 15px;">Your Cart</h1>
+        <table id="cart-table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-table-body">
+                <!-- Cart items will be dynamically added here -->
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <div id="total-price" style="margin-bottom: 20px; margin-top: 5px;">Total: $0.00</div>
+            <button id="proceed-to-payment" onclick="checkBeforeProceed()">Proceed to Payment</button>
+        </div>
+        <div id="notification"></div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <h2>Select Payment Method</h2>
+            <button onclick="handleCashOnDelivery()">Cash on Delivery</button>
+            <button onclick="handleUPIGateway()">UPI Gateway</button>
+            <button onclick="closePaymentModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- UPI QR Code Modal -->
+    <div id="upi-modal" class="modal">
+        <div class="modal-content">
+            <h2>Scan the QR Code to Pay</h2>
+            <!-- Static QR Code Image -->
+            <img id="upi-qr-image" src="" alt="UPI QR Code" style="width: 200px; height: 200px; margin: 20px;">
+            <button onclick="handleUPIPayment()">OK</button>
+        </div>
+    </div>
+
+    <div id="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>
